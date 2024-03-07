@@ -3,16 +3,34 @@ package org.example;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
-public class MyStack<E> extends ArrayList<E> {
+public class MyStack<E> {
+    private ArrayList<E> delegate;
+
+    public MyStack() {
+        this.delegate = new ArrayList<>();; // Initialize delegate as "this"
+    }
 
     public void push(E e) {
-        add(e);
+        delegate.add(e);
     }
 
     public E pop() {
         if (isEmpty()) throw new EmptyStackException();
-        E e = get(size() - 1);
-        remove(size() -1 );
+        E e = delegate.get(delegate.size() - 1);
+        delegate.remove(delegate.size() - 1);
         return e;
     }
+
+    public boolean isEmpty() {
+        return delegate.isEmpty();
+    }
+
+    public int size() {
+        return delegate.size();
+    }
+
+    public E get(int index) {
+        return delegate.get(index);
+    }
 }
+
