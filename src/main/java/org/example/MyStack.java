@@ -1,3 +1,4 @@
+package org.example;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
@@ -31,3 +32,4 @@ public class MyStack<E> {
         return delegate.get(index);
     }
 }
+
